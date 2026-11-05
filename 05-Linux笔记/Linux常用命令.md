@@ -26,32 +26,6 @@ WSL2（Ubuntu 22.04）｜ 练习日期：2026.11
 | 14 | chmod | 改权限 | `chmod +x run.sh` | 脚本没权限 |
 | 15 | tar | 压缩/解压 | `tar -zxvf app.tar.gz` | 解压部署包 |
 
-## 加分项（面试常问）
-
-| 命令 | 作用 | 例子 |
-|---|---|---|
-| ssh | 远程登录 | `ssh user@192.168.1.10` |
-| scp | 远程传文件 | `scp app.log user@host:/tmp/` |
-| df -h / du -sh | 磁盘空间 | `df -h`、`du -sh *` |
-
-## 一次练习（30 分钟）
-
-1. `python3 -m http.server 8000` 起本地服务；
-2. `tail -f server.log` 实时看日志；
-3. `curl -i http://localhost:8000`、`curl -i http://localhost:8000/not-exist` 发请求；
-4. `grep -n "404" server.log` 搜 404；
-5. `ss -tulnp | grep 8000` 查端口；
-6. `ps aux | grep http.server` + `kill <PID>` 收尾。
-
-结果：留下 3 张截图，见下方。
-
-## 截图
-
-![tail -f 实时日志](screenshots/01-tail-f.png)
-
-![grep 404](screenshots/02-grep-404.png)
-
-![ss 端口查询](screenshots/03-ss-8000.png)
 
 ## 一句话总结
 

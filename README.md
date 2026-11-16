@@ -1,46 +1,71 @@
-# 陈展弘 · 软件测试作品集
-
-> 广州商学院 计算机科学与技术 2027 届 ｜ 求职：AI 测试实习生 / 软件测试（B 端方向）
-
-## 我是谁
-
-计算机科学与技术专业本科生，做过 Web UI 功能测试、接口测试、SQL 数据校验。这个作品集把零散的练习收拢成一条完整的测试流程：**需求 → 用例 → 执行 → 缺陷 → 回归**。
-
-## 这里有什么
-
-| 目录 | 内容 | 状态 |
-|---|---|---|
-| `01-Web UI功能测试/` | 登录/弹窗 16 条用例 + 16 张截图 + 3 个缺陷 + 测试总结 | ✅ 已完成 |
-| `02-接口测试/` | Postman 16 个请求 + Fiddler 抓包，含 token 传递、Bearer 鉴权、隔离测试、登录流程对比 | ✅ 已完成 |
-| `03-SQL练习/` | 6 条查询：JOIN、GROUP BY、HAVING、子查询、按月统计、LIMIT/OFFSET | ✅ 已完成 |
-| `04-缺陷报告/` | 缺陷报告模板 + 登录模块 3 个缺陷记录（S3/P1） | ✅ 已完成 |
-| `05-Linux笔记/` | 常用命令、日志排查、端口/进程 | 未完成 |
-| `06-Python脚本/` | 状态码统计脚本（PASS/FAIL/通过率） | ✅ 已完成 |
-
-## 案例：登录功能从需求到回归
-
-以「登录」为例：
-
-1. **需求**：用户名 6～12 位，密码 8～20 位，含字母和数字；
-2. **用例**：设计 16 条，覆盖正常、异常、边界、组合；
-3. **执行**：手工执行 + Postman 调登录接口；
-4. **数据**：SQL 查用户表，验证登录后的数据；
-5. **环境**：Linux 看日志，确认请求到达；
-6. **缺陷**：空用户名/空密码时提示「用户名或密码错误」，而不是「请输入用户名/密码」→ 写 bug 单（S3/P1）；
-7. **回归**：修复后复测，关闭缺陷。
-
-## 环境与工具
-
-- **环境**：Windows 10 + Chrome DevTools；DummyJSON 公开 API；本地 Flask 站点
-- **工具**：Postman（Collection / 集合变量 / 断言）、Fiddler、SQL、Excel 用例表
-
-## 怎么查看
-
-- **Postman**：Import `02-接口测试/接口测试实践-DummyJSON.postman_collection.json`，先跑「登录-正确」，再跑「获取当前用户-带Token」；截图和说明见 `02-接口测试/README.md`；
-- **SQL**：打开 sqliteonline.com，先贴建表语句（见 `03-SQL练习/sql练习.sql` 注释），再逐条执行；
-- **Linux**：看 `05-Linux笔记/Linux常用命令.md`；
-- **Python**：`python 06-Python脚本/stats.py`。
-
-## 联系方式
-
-详细联系方式见简历；也可以通过 GitHub 私信联系。
+Software Testing Portfolio — CHEN Zhanhong
+Final-year Computer Science student at Guangzhou College of Commerce, graduating June 2027. This repository collects my
+testing practice into one end-to-end workflow: test points → test cases → execution → defect logging → test summary.
+The case sheets, defect records and test summary are written in Chinese. The structure and the numbers are
+summarised below so the material can be reviewed without reading Chinese.
+Contents
+Folder Contents Status
+01-Web UI功能测试/
+Login and pop-up modules: 16 test
+cases, 16 execution screenshots, 3
+defect records, 1 test summary
+Complete
+02-接口测试/
+Postman collection with 16 requests,
+Fiddler captures, 12 screenshots
+Complete
+03-SQL练习/
+6 queries: JOIN, GROUP BY,
+HAVING, subquery, monthly
+aggregation, LIMIT / OFFSET
+Complete
+04-缺陷报告/
+Defect report template and 3 defect
+records for the login module
+3 of 5 planned
+05-Linux笔记/
+Common commands, ports and Notes only
+processes
+06-Python脚本/
+Status-code statistics script: pass /
+fail counts and pass rate, with empty-
+input handling
+Complete
+1. Web UI functional testing
+● Target: the login and pop-up modules of a public web practice site.
+● 16 test cases (7 login, 9 pop-up), designed with equivalence partitioning, boundary value analysis, decision tables and
+scenario-based design.
+● Result: 13 passed, 3 failed.
+● 3 defects, all the same class of issue: an empty username, an empty password, or both empty return a generic "invalid
+username or password" message instead of a field-level required-field message. Severity S3, priority P1.
+● Every case has an execution screenshot (16 in total), and each defect record contains reproduction steps, test
+environment, expected vs actual result and attachments.
+2. API testing
+● Postman collection: 16 requests against the public DummyJSON API — authentication, users, products, carts and
+negative cases.
+● Token chaining: the accessToken returned by the login request is stored in a collection variable and injected
+as Authorization: Bearer {{token}} in later requests.
+● Assertions: status code, field presence and field type.
+● Batch execution: Collection Runner.
+● Isolation check: key requests were re-run with cookies cleared, confirming that the Bearer token — not a session cookie
+— authorises access.
+● Negative case: a wrong password returns 400 with an error message.
+● Fiddler: captured a local Flask practice site's login flow. Successful login returns 302 with Location and Set-Cookie ;
+failed login returns 200 with the login page and no cookie. This separates form-session login from token-based API
+authentication.
+3. SQL, Linux and Python
+● SQL: 6 queries covering JOIN, GROUP BY / HAVING, subqueries, monthly aggregation and LIMIT / OFFSET.
+● Linux: notes on common commands, file permissions, ports and processes.
+● Python: stats.py , a small script that counts passed / failed status codes and calculates a pass rate, including empty-
+input handling. The scope of this script is intentionally small.
+How to review
+● Postman — import 02-接口测试/接口测试实践-DummyJSON.postman_collection.json , then run login followed by get
+current user with token.
+● SQL — paste the schema from 03-SQL练习/sql练习.sql into sqliteonline.com and run the queries.
+● Python — python 06-Python脚本/stats.py
+Scope
+All artefacts in this repository were produced by me as self-directed practice between September and November 2026. No
+client or company data is included. Systems under test are either a public practice site or a public demo API — they are not
+products I built.
+Contact
+CHEN Zhanhong · 17727331381@163.com · github.com/chenzhanhong1

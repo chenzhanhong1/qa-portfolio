@@ -7,7 +7,7 @@ This repository collects my testing practice into one end-to-end workflow: **tes
 
 ## Contents
 
-| Folder | Contents ||
+| Folder | Contents |状态|
 |---|---|---|
 | `01-Web UI功能测试/` | Login and pop-up modules: 16 test cases, 16 execution screenshots, 3 defect records, 1 test summary | Complete |
 | `02-接口测试/` | Postman collection with 16 requests, Fiddler captures, 12 screenshots | Complete |

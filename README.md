@@ -7,7 +7,7 @@ This repository collects my testing practice into one end-to-end workflow: **tes
 
 ## Contents
 
-| Folder | Contents | Status |
+| Folder | Contents |状态|
 |---|---|---|
 | `01-Web UI功能测试/` | Login and pop-up modules: 16 test cases, 16 execution screenshots, 3 defect records, 1 test summary | Complete |
 | `02-接口测试/` | Postman collection with 16 requests, Fiddler captures, 12 screenshots | Complete |
@@ -32,7 +32,7 @@ This repository collects my testing practice into one end-to-end workflow: **tes
 - **Batch execution:** Collection Runner.
 - **Isolation check:** key requests were re-run with cookies cleared, confirming that the Bearer token — not a session cookie — authorises access.
 - **Negative case:** a wrong password returns 400 with an error message.
-- **Fiddler:** captured a local Flask practice site's login flow. Successful login returns 302 with `Location` and `Set-Cookie`; failed login returns 200 with the login page and no cookie. This separates form-session login from token-based API authentication.
+- **Fiddler:** captured a local Flask practice site's login flow. Successful login returns 302 with `地址` and `Set-Cookie`; failed login returns 200 with the login page and no cookie. This separates form-session login from token-based API authentication.
 
 ## 3. SQL, Linux and Python
 
